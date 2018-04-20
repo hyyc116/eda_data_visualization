@@ -1,0 +1,219 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<!-- <div class="navbar navbar-inverse navbar-fixed-top" role="navigation"> -->
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="./">EDA project Interactive Visualization</a>
+      </div>
+    </div>
+
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- US MAP -->
+        <div class="row">
+           <div class="col-sm-12">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                US MAP
+              </div>
+              <div class="chart-stage">
+                <div id="us-map-chart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- US MAP -->
+
+        <!-- BUSINESS BY TYPE -->
+        <div class="row">
+           <div class="col-sm-12">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Business AND Sales
+              </div>
+              <div class="chart-stage">
+                <div id="combine_chart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- BUSINESS BY TYPE -->
+        
+		<!-- GAIN LOST -->
+        <div class="row">
+           <div class="col-sm-12">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                JOB GAIN LOST
+              </div>
+              <div class="chart-stage">
+                <div id="gl-chart"></div>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+        <!-- JOBS BY STAGES-->
+        <div class="row">
+           <div class="col-sm-6">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                BUSINESS BY TYPE
+              </div>
+              <div class="chart-stage">
+                <div id="business-chart"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                JOB BY STAGES
+              </div>
+              <div class="chart-stage">
+                <div id="jobs-chart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- JOBS CHANGES -->
+
+        
+        
+      </div>
+
+      <div class="col-sm-6">
+        <!-- statistics of indeed-->
+        <div class="row">
+          <!-- number of jobs -->
+           <div class="col-sm-4">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Number of Jobs
+              </div>
+              <div class="chart-stage">
+                <div id="noj-chart"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- number of company -->
+           <div class="col-sm-4">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Number of Companies
+              </div>
+              <div class="chart-stage">
+                <div id="noc-chart"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- number of company -->
+           <div class="col-sm-4">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Average Salary ($/hour)
+              </div>
+              <div class="chart-stage">
+                <div id="as-chart"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- statistics of indeed-->
+        <div class="row">
+            <!-- number of jobs changes over time -->
+           <div class="col-sm-12">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Jobs Changes
+              </div>
+              <div class="chart-stage">
+                <div id="jobc-chart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='row'>
+          <!-- Salary distribution -->
+           <div class="col-sm-6">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Salary distribution
+              </div>
+              <div class="chart-stage">
+                <div id="sd-chart"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Top 10 Skills -->
+           <div class="col-sm-6">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Top 10 Skills
+              </div>
+              <div class="chart-stage">
+                <div id="skill-chart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='row'>
+          <!-- Top 10 Positions -->
+          <div class="col-sm-6">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Top 10 Positions
+              </div>
+              <div class="chart-stage">
+                <div id="pos-chart"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top 10  companies-->
+          <div class="col-sm-6">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Top 10 Companies
+              </div>
+              <div class="chart-stage">
+                <div id="com-chart"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class='row'>
+          <!-- Top 10 Positions -->
+          <div class="col-sm-12">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+               Recent Jobs
+              </div>
+              <div class="chart-stage">
+                <div id="rjs-chart"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+      
+
+  </div>
+
+#{set 'moreScripts'}
+    <script src="@{'/public/static/js/graphs.js'}" type="text/javascript"></script>
+#{/set}
