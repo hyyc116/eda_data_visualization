@@ -30,7 +30,7 @@ function visualize(error, statesJson, yedata) {
 
 	// Charts
 	var us_map_chart = dc.geoChoroplethChart("#us-map-chart")
-	us_map_chart.width(1000).height(400).dimension(stateDim).group(stateGr)
+	us_map_chart.width(600).height(400).dimension(stateDim).group(stateGr)
 			.colors(
 					[ "#E2F2FF", "#C4E4FF", "#9ED2FF", "#81C5FF", "#6BBAFF",
 							"#51AEFF", "#36A2FF", "#1E96FF", "#0089FF",
@@ -38,7 +38,7 @@ function visualize(error, statesJson, yedata) {
 			.overlayGeoJson(statesJson["features"], "state", function(d) {
 				return d.properties.name;
 			})
-			.projection(d3.geo.albersUsa().scale(800).translate([ 500, 200 ]))
+			.projection(d3.geo.albersUsa().scale(800).translate([ 300, 200 ]))
 			.title(
 					function(p) {
 						return "State: " + p["key"] + "\n" + "Total Sales: "
@@ -249,7 +249,7 @@ function visualize(error, statesJson, yedata) {
 	var min_br = bubbleGr.order(ravg_order_r).top(1)[0].value.ravg;
 	var min_by = bubbleGr.order(yavg_order_r).top(1)[0].value.yavg;
 	var min_bc = bubbleGr.order(cavg_order_r).top(1)[0].value.cavg;
-	combine_chart.width(1000).height(500).margins({
+	combine_chart.width(600).height(400).margins({
 		top : 100,
 		right : 50,
 		bottom : 50,
@@ -273,7 +273,7 @@ function visualize(error, statesJson, yedata) {
 	
 	.x(d3.scale.linear().domain([ min_bx, max_bx ]))
 	.y(d3.scale.linear().domain([ min_by, max_by ]))
-	.r(d3.scale.linear().domain([ 1, 10 ]))
+	.r(d3.scale.log().domain([ min_br, max_bx ]))
 	.elasticRadius(true)
 	.sortBubbleSize(true)
 	.elasticY(true)
@@ -282,9 +282,10 @@ function visualize(error, statesJson, yedata) {
 			.renderLabel(true).renderTitle(true).label(function(p) {
 				return p.key.getFullYear();
 			}).title(function(p) {
-				console.log(p);
+//				console.log(p);
 				return p.value;
 			});
+
 	//
 	// // we need access to the entire rows (or at least all the
 	// // columns we're using), so just make the dimension function
