@@ -120,10 +120,9 @@ function visualize(error, statesJson, yedata) {
 	.x(d3.time.scale().domain([minDate, maxDate]))
 	.round(d3.time.year.round)
 	.xUnits(d3.time.months)
-	.centerBar(true)
 	.barGap(1)
-	.stack(monthlyMoveGroup, function(d){return d.value;})
-	.stack(monthlyMoveGroup)
+	.stack(bbtAllGr, function(d){return d.value;})
+	.stack(bbtAllGr)
 	.brushOn(true)
 	.title(function(d) { return "Value: " + d.value; })
     .renderTitle(true);
