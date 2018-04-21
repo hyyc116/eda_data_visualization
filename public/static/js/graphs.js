@@ -82,7 +82,65 @@ function visualize(error, statesJson, yedata) {
 			}
 		};
 	}
-
+	
+	// Define values (to be used in charts)
+	var minDate = yearDim.bottom(1)[0]["year"];
+	var maxDate = yearDim.top(1)[0]["year"];
+	
+	// BUSINESS BY TYPE
+	
+	var bbtAllGr  = yearDim.group().reduceSum(function(d){
+		return +d['RESIDENT'] + +d['NONRESIDENT'] + +d['NONCOMMERCIAL'];
+	});
+	
+	var residentGr = yearDim.group().reduceSum(function(d){
+		return +d['RESIDENT'];
+	});
+	var residentGr = yearDim.group().reduceSum(function(d){
+		return +d['NONRESIDENT'];
+	});
+	var residentGr = yearDim.group().reduceSum(function(d){
+		return +d['NONCOMMERCIAL'];
+	});
+	
+	var businessBarChart = dc.compositeChart('#business-bar-chart');
+	
+	businessBarChart.width(600).height(200).margins({
+		top : 100,
+		right : 50,
+		bottom : 50,
+		left : 100
+	}).transitionDuration(500)
+	.dimension(yearDim)
+	.group(bbtAllGr)
+	.elasticY(true)
+	.yAxisPadding(100)
+	.elasticX(true)
+	.xAxisPadding(500)
+	.x(d3.time.scale().domain([minDate, maxDate]))
+	.round(d3.time.year.round)
+	.xUnits(d3.time.months)
+	.centerBar(true)
+	.barGap(1)
+	.stack(monthlyMoveGroup, function(d){return d.value;})
+	.stack(monthlyMoveGroup)
+	.brushOn(true)
+	.title(function(d) { return "Value: " + d.value; })
+    .renderTitle(true);
+	
+//	businessChart.
+//	.width(600).height(400).margins({
+//		top : 100,
+//		right : 50,
+//		bottom : 50,
+//		left : 100
+//	}).transitionDuration(500)
+//	.elasticY(true)
+//	.yAxisPadding(100)
+//	.elasticX(true)
+//	.compose()
+//	.brushOn(True)
+	
 	// // JOBS BY STAGE
 	//		
 	var jbsAllGr = yearDim.group().reduceSum(
@@ -132,9 +190,7 @@ function visualize(error, statesJson, yedata) {
 
 	var all = ndx.groupAll();
 
-	// Define values (to be used in charts)
-	var minDate = yearDim.bottom(1)[0]["year"];
-	var maxDate = yearDim.top(1)[0]["year"];
+	
 
 	var max_color = srSpbGr.top(1)[0].value;
 	var min_color = srSpbGr.order(orderValue).top(1)[0].value;
