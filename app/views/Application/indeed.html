@@ -1,0 +1,98 @@
+#{extends 'main.html' /} #{set title:'Data of Indeed.com' /}
+
+<!-- <div class="navbar navbar-inverse navbar-fixed-top" role="navigation"> -->
+<div class="container-fluid">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="./">EDA project Interactive
+			Visualization</a>
+	</div>
+</div>
+
+
+<div class="container-fluid">
+
+	<div class="row">
+
+		<div class="col-sm-12">
+			<!-- statistics of indeed-->
+			<div class="row">
+				<!-- number of jobs -->
+				<div class="col-sm-6">
+					<div class="chart-wrapper">
+						<div class="chart-title">Jobs Number Changes over Time</div>
+						<div class="chart-stage">
+							<div id="noj-chart"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Job Distribution on Map -->
+				<div class="col-sm-6">
+					<div class="chart-wrapper">
+						<div class="chart-title">Distribution On Map</div>
+						<div class="chart-stage">
+							<div id="dom-chart"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- number of jobs changes over time -->
+				<div class="col-sm-6">
+					<div class="col-sm-6">
+						<div class="chart-wrapper">
+							<div class="chart-title">Top 10 Jobs</div>
+							<div class="chart-stage">
+								<div id="t10j-chart"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="chart-wrapper">
+							<div class="chart-title">Top 10 Company</div>
+							<div class="chart-stage">
+								<div id="t10c-chart"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='col-sm-6'>
+					<div class="col-sm-6">
+						<div class="chart-wrapper">
+							<div class="chart-title">Total Jobs</div>
+							<div class="chart-stage">
+								<div id="rjs-chart"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="chart-wrapper">
+							<div class="chart-title">Average Income($/hour)</div>
+							<div class="chart-stage">
+								<div id="ai-chart"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="chart-wrapper">
+							<div class="chart-title">Salary Distribution</div>
+							<div class="chart-stage">
+								<div id="sd-chart"></div>
+							</div>
+						</div>
+					</div>
+				
+				</div>
+			</div>
+
+		</div>
+
+
+	</div>
+
+
+</div>
+
+#{set 'moreScripts'}
+<script src="@{'/public/static/js/graph_indeed.js'}" type="text/javascript"></script>
+#{/set}

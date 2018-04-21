@@ -11,4 +11,4 @@ GET     /public/                                staticDir:public
 # Default Action
 GET       /                 Application.index
 GET       /test				Application.test
-
+GET       /indeed				Application.indeed

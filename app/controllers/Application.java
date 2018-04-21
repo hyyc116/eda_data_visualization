@@ -16,5 +16,10 @@ public class Application extends Controller {
     public static void test() {
     	renderTemplate("/Application/test_county.html");
     }
+    
+    public static void indeed() {
+    	renderTemplate("/Application/indeed.html");
+    }
+
 
 }
