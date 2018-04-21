@@ -21,7 +21,7 @@ function vizIndeed(statesJson, indeed) {
 	});
 	var indeedndx = crossfilter(indeed);
 	// indeed的所有图
-	 var noj_chart = dc.barChart("#noj_chart");
+//	 var noj_chart = dc.barChart("#noj_chart");
 	var indeed_job_map = dc.geoChoroplethChart("#dom-chart");
 	var t10j_chart = dc.rowChart('#t10j-chart');
 	var t10c_chart = dc.rowChart('#t10c-chart');
@@ -39,9 +39,9 @@ function vizIndeed(statesJson, indeed) {
 	var indeedCompanyDim = indeedndx.dimension(function(d) {
 		return d['company'];
 	});
-	var indeedTimeDim = indeedndx.dimension(function(d) {
-		return d['publishdate'].month;
-	});
+//	var indeedTimeDim = indeedndx.dimension(function(d) {
+//		return d['publishdate'];
+//	});
 
 	var indeedSalaryDim = indeedndx.dimension(function(d) {
 		if (+d['salary'] <= 10) {
@@ -56,8 +56,8 @@ function vizIndeed(statesJson, indeed) {
 			return '500+';
 		}
 	});
-	var minTime = indeedTimeDim.bottom(1)[0]["publishdate"];
-	var maxTime = indeedTimeDim.top(1)[0]["publishdate"];
+//	var minTime = indeedTimeDim.bottom(1)[0]["publishdate"];
+//	var maxTime = indeedTimeDim.top(1)[0]["publishdate"];
 
 	var Top10JobGr = indeedJobDim.group();
 	var Top10ComGr = indeedCompanyDim.group();
@@ -78,7 +78,7 @@ function vizIndeed(statesJson, indeed) {
 
 	// indeed图所需要的group
 	// job数量随着时间的变化曲线的group,相同时间的相加
-	var noj_changes_group = indeedTimeDim.group();
+//	var noj_changes_group = indeedTimeDim.group();
 	var job_map_group = indeedStateDim.group();
 	var maxStateJob = job_map_group.top(1)[0].value;
 	var indeedall = indeedndx.groupAll();
@@ -107,16 +107,16 @@ function vizIndeed(statesJson, indeed) {
 			Top10ComGr).cap(10).othersGrouper(null).elasticX(true)
 			.labelOffsetY(10).xAxis().ticks(4);
 	//	
-	 // indeed 中job数量随着天数的变化曲线
-	 noj_chart.width(800).height(400).margins({
-	 top : 50,
-	 right : 100,
-	 bottom : 50,
-	 left : 100
-	 }).transitionDuration(500).dimension(indeedTimeDim)
-	 .group(noj_changes_group).elasticY(true).yAxisPadding(100).x(
-	 d3.time.scale().domain([ minTime, maxTime ]))
-	 .elasticY(true).yAxis().ticks(4);
+//	 // indeed 中job数量随着天数的变化曲线
+//	 noj_chart.width(800).height(400).margins({
+//	 top : 50,
+//	 right : 100,
+//	 bottom : 50,
+//	 left : 100
+//	 }).transitionDuration(500).dimension(indeedTimeDim)
+//	 .group(noj_changes_group).elasticY(true).yAxisPadding(100).x(
+//	 d3.time.scale().domain([ minTime, maxTime ]))
+//	 .elasticY(true).yAxis().ticks(4);
 
 	// ye的美国地图Charts
 	indeed_job_map.width(800).height(400).dimension(indeedStateDim).group(
