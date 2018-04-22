@@ -69,7 +69,7 @@ function vizIndeed(statesJson, indeed) {
 //	console.log(maxTime);
 	// 所有的group的声明在这里
 
-	sd_chart.width(800).height(400).margins({
+	sd_chart.width(800).height(350).margins({
 		top : 10,
 		right : 50,
 		bottom : 20,
