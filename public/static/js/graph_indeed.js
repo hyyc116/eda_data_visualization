@@ -65,8 +65,8 @@ function vizIndeed(statesJson, indeed) {
 	// var maxJob = Top10JobGr.top(1)[0].value;
 	// var maxCom = Top10ComGr.top(1)[0].value;
 
-	console.log(minTime);
-	console.log(maxTime);
+//	console.log(minTime);
+//	console.log(maxTime);
 	// 所有的group的声明在这里
 
 	sd_chart.width(800).height(400).margins({
